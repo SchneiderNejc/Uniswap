@@ -1,23 +1,30 @@
 # Swap
+The UniswapV2SwapExamples contract demonstrates how to interact with the Uniswap V2 Router to perform token swaps. It supports both single-hop and multi-hop swaps using "exact input" and "exact output" methods.
 
-The UniswapV2SwapExamples contract demonstrates how to interact with the Uniswap V2 Router to perform token swaps. It includes single-hop and multi-hop swaps with both "exact input" and "exact output" methods.
-
+Functions:
 swapSingleHopExactAmountIn
-Swap exact amount of WETH for specified minimum amount of DAI.
-Returns amount of DAI received.
 
+Swaps an exact amount of WETH for a specified minimum amount of DAI.
+Returns: The amount of DAI received.
 swapMultiHopExactAmountIn
-Swap exact amount of DAI for specified minimum amount of USDC. WETH is traded as an intermediary (DAI->WETH->USDC)
-Returns amount of USDC (target token) received.
 
+Swaps an exact amount of DAI for a specified minimum amount of USDC.
+WETH is used as an intermediary (DAI → WETH → USDC).
+Returns: The amount of USDC (target token) received.
 swapSingleHopExactAmountOut
-Swap maximum amount of WETH for exact amount of DAI. 
-Returns amound of DAI received.
 
+Swaps up to a maximum amount of WETH for an exact amount of DAI.
+Excess WETH is refunded.
+Returns: The amount of DAI received.
 swapMultiHopExactAmountOut
-Swap maximum amount of DAI for exact amount of USDC. WETH is traded as an intermediary (DAI->WETH->USDC)
-Returns amount of USDC received.
 
-IUniswapV2Router Functions called: 
+Swaps up to a maximum amount of DAI for an exact amount of USDC.
+WETH is used as an intermediary (DAI → WETH → USDC). Excess DAI is refunded.
+Returns: The amount of USDC received.
+Uniswap V2 Router Functions Utilized:
 swapExactTokensForTokens
+
+Swaps an exact input token amount for as many output tokens as possible (based on slippage and liquidity).
 swapTokensForExactTokens
+
+Swaps as few input tokens as necessary to receive an exact output token amount.
