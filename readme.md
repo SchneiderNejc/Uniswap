@@ -27,39 +27,24 @@ swapExactTokensForTokens
 Swaps an exact input token amount for as many output tokens as possible (based on slippage and liquidity).
 swapTokensForExactTokens
 
-Swaps as few input tokens as necessary to receive an exact output token amount.# Flash swaps
-A flash swap is a feature of Uniswap V2 that allows you to borrow tokens from a liquidity pool without providing upfront collateral, provided you repay the borrowed amount plus a small fee within the same transaction. This atomicity ensures that either all steps of the operation are completed successfully, or the transaction is reverted.
-This feature is useful for arbitrage, collateral swaps, or other advanced DeFi strategies.
-
-How It Works:
-
-A user initiates a swap function with parameters specifying the desired token and amount.
-Uniswap provides the requested tokens but expects the repayment (plus a 0.3% fee) within the same transaction.
-If the repayment conditions aren't met, the transaction reverts, ensuring liquidity providers face no risk.
+Swaps as few input tokens as necessary to receive an exact output token amount.
 
 
-Uniswap V2 Flash Swap
-Flash swaps on Uniswap V2 enable users to borrow tokens from a liquidity pool without upfront collateral, as long as the borrowed amount is returned (plus a fee) by the end of the transaction. This functionality supports advanced use cases like arbitrage, refinancing, and liquidations within a single atomic transaction.
+
+
 
 Key Concepts:
 Why It's Needed:
-Flash swaps are useful when users need temporary access to liquidity for advanced DeFi strategies without holding the upfront capital for the required tokens.
 
 How It Works:
 
 A user initiates a swap function with parameters specifying the desired token and amount.
 Uniswap provides the requested tokens but expects the repayment (plus a 0.3% fee) within the same transaction.
 If the repayment conditions aren't met, the transaction reverts, ensuring liquidity providers face no risk.
-Benefits:
 
-No Collateral: Borrow tokens without providing upfront capital.
-Atomic Execution: Ensures all operations complete within a single transaction or revert entirely.
-Flexibility: Supports complex DeFi use cases like arbitrage, liquidation, or refinancing.
-Use Cases:
+Why It's Needed:
+Flash swaps are useful when users need temporary access to liquidity for advanced DeFi strategies without holding the upfront capital for the required tokens.
 
-Arbitrage between different markets or exchanges.
-Liquidating undercollateralized loans.
-Refinancing debt positions.
 Functions
 flashSwap
 
