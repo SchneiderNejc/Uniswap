@@ -57,9 +57,43 @@ Calls the router's removeLiquidity function to withdraw the tokens from the pool
 Returns:
 amountA and amountB: Amounts of tokens withdrawn.
 
+# Optimal One-Sided Supply
+Optimal one-sided supply is a strategy used in decentralized finance (DeFi) for efficiently adding liquidity to a token pair pool (like Uniswap) when you hold only one of the tokens in the pair. Instead of requiring both tokens in equal proportions, this method determines how much of the held token should be swapped for the other token to minimize slippage and maximize liquidity provision efficiency.
 
 Key Concepts:
 Why It's Needed:
+Liquidity pools require a balanced ratio of two tokens (e.g., Token A and Token B). If you only hold Token A, simply swapping an arbitrary amount into Token B can lead to poor execution due to price impact (slippage) or inefficient use of your assets. Optimal one-sided supply solves this.
+
+How It Works:
+
+It uses a mathematical formula to calculate the exact amount of the held token to swap for the paired token. This ensures the least price impact and creates the most balanced liquidity addition.
+After the swap, both tokens are added to the pool in proportion to the pool's current reserves.
+Benefits:
+
+Efficiency: Maximizes the use of your tokens, ensuring you're not adding liquidity unevenly.
+Minimized Slippage: Reduces the price impact caused by large swaps in the pool.
+Convenience: Automates the process of swapping and adding liquidity, requiring only a single token from the user.
+Use Cases:
+
+Users or protocols that hold only one token but want to provide liquidity to a specific pool.
+Strategies for liquidity mining where one-sided input is preferred.
+
+Functions:
+getSwapAmount
+Calculates the optimal amount of a token to swap for the other token in the pair based on the reserves and the input amount.
+Returns: Optimal swap amount.
+
+zap
+Automates the one-sided liquidity supply process:
+
+Swaps the optimal amount of _tokenA for _tokenB.
+Adds both tokens as liquidity to the pool.
+
+_swap (Internal)
+Executes a token swap via Uniswap V2 Router
+
+_addLiquidity (Internal)
+Adds liquidity to the Uniswap V2 pool using the tokens available in the contract.
 
 How It Works:
 
