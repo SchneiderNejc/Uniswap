@@ -127,3 +127,34 @@ Arbitrage: Profit from price discrepancies across platforms or tokens.
 Collateral Swapping: Replace collateral in lending protocols with a different token.
 Flash Loans Replacement: Serve as an alternative to traditional flash loans for certain operations.
 the 0.3% fee is the standard fee charged by Uniswap V2
+
+
+--------------------------------------
+
+
+Uniswap V3
+
+# Swap
+
+Key Differences Between Uniswap V2 and V3 Swaps:
+Routing & Pools:
+
+V2: Single pool, fixed fee (0.3%), constant product formula.
+V3: Supports multiple fee tiers, concentrated liquidity, and multi-hop routing.
+Swap Flexibility:
+
+V2: Fixed input-output swaps, simpler logic.
+V3: Offers exact input/output swaps and advanced controls like price limits (sqrtPriceLimitX96).
+Liquidity & Fees:
+
+V2: Uniform liquidity distribution, fixed fees.
+V3: LPs provide liquidity in specific price ranges; multiple fee tiers per pool.
+Gas & Efficiency:
+
+V2: Lower gas due to simpler design.
+V3: Higher gas costs but better price execution with routing.
+Contracts:
+
+V2: Basic single-pair swaps.
+V3: Handles complex multi-hop paths and fee customization via SwapRouter02.
+In short, V3 is more flexible and efficient but more complex than V2.
