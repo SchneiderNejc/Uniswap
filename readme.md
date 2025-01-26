@@ -1,3 +1,5 @@
+Uniswap V2
+
 # Swap
 The UniswapV2SwapExamples contract demonstrates how to interact with the Uniswap V2 Router to perform token swaps. It supports both single-hop and multi-hop swaps using "exact input" and "exact output" methods.
 
@@ -30,7 +32,30 @@ swapTokensForExactTokens
 Swaps as few input tokens as necessary to receive an exact output token amount.
 
 
+# Uniswap V2 Add/Remove Liquidity
 
+The UniswapV2AddLiquidity contract provides methods to interact with the Uniswap V2 Router for adding and removing liquidity in token pairs.
+
+Functions:
+addLiquidity
+
+Adds liquidity to a Uniswap V2 pool for a specified token pair.
+Steps:
+Transfers _amountA and _amountB of _tokenA and _tokenB from the sender to the contract.
+Approves the Uniswap V2 Router to spend the tokens.
+Calls the router's addLiquidity function to deposit the tokens into the liquidity pool.
+Returns:
+amountA and amountB: Actual amounts of tokens deposited.
+liquidity: Amount of liquidity tokens minted.
+removeLiquidity
+
+Removes liquidity from a Uniswap V2 pool for a specified token pair.
+Steps:
+Fetches the liquidity pair's address using the Uniswap V2 Factory.
+Transfers the contract's liquidity tokens to the router.
+Calls the router's removeLiquidity function to withdraw the tokens from the pool.
+Returns:
+amountA and amountB: Amounts of tokens withdrawn.
 
 
 Key Concepts:
