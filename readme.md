@@ -95,6 +95,10 @@ Executes a token swap via Uniswap V2 Router
 _addLiquidity (Internal)
 Adds liquidity to the Uniswap V2 pool using the tokens available in the contract.
 
+# Flash swaps
+A flash swap is a feature of Uniswap V2 that allows you to borrow tokens from a liquidity pool without providing upfront collateral, provided you repay the borrowed amount plus a small fee within the same transaction. This atomicity ensures that either all steps of the operation are completed successfully, or the transaction is reverted.
+This feature is useful for arbitrage, collateral swaps, or other advanced DeFi strategies.
+
 How It Works:
 
 A user initiates a swap function with parameters specifying the desired token and amount.
