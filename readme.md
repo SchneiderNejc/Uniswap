@@ -181,3 +181,32 @@ V2 requires adding or removing liquidity across the entire pool.
 
 Summary:
 Uniswap V3 enhances flexibility and efficiency by introducing concentrated liquidity, NFT-based positions, and granular control. V2, on the other hand, offers a simpler, uniform liquidity provision mechanism.
+
+# Flash loan
+
+Flash loan vs Flash swap:
+Flash Loans: Borrow tokens without upfront collateral, repay within the same transaction with fees. No specific trading pair required.
+
+Flash Swaps: Borrow one token from a Uniswap pool, repay with the other token (or equivalent value) in the same transaction. Requires a specific trading pair.
+
+Flash loans distinct use cases
+Flash loans enable use cases where flash swaps are insufficient, including:
+
+Arbitrage Across Multiple Pools: Execute arbitrage across pools or platforms not directly connected via a Uniswap pair.
+Collateral Swaps: Repay and re-collateralize loans across lending protocols like Aave or Compound in one transaction.
+Debt Refinancing: Move or restructure debt between protocols efficiently.
+Complex Transactions: Combine multiple DeFi actions (e.g., arbitrage + collateral swap) that require liquidity without relying on a single trading pair.
+Protocol Upgrades: Liquidate and reinvest funds during governance or strategy changes.
+Flash swaps are limited to Uniswap pool pairs, while flash loans provide greater flexibility.
+
+Shared use cases 
+Arbitrage: Both can be used to exploit price differences between trading pairs or platforms.
+Liquidity Provision: Temporarily provide liquidity for swaps or transactions that require large token amounts.
+Liquidation: Cover loan positions on lending platforms to avoid liquidation, though flash loans are more versatile for multi-protocol scenarios.
+
+Functions:
+flash
+Initiates a flash loan for specified token amounts.
+
+uniswapV3FlashCallback
+Handles loan repayment and associated fees.
