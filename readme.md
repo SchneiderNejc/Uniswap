@@ -158,3 +158,26 @@ Contracts:
 V2: Basic single-pair swaps.
 V3: Handles complex multi-hop paths and fee customization via SwapRouter02.
 In short, V3 is more flexible and efficient but more complex than V2.
+
+# Liquidity V3
+
+Differences:
+Concentrated Liquidity:
+
+V3 uses price ranges (tickLower and tickUpper) to provide concentrated liquidity within a specific range, maximizing efficiency.
+V2 provides liquidity uniformly across the entire price range.
+Minting NFT Positions:
+
+In V3, a liquidity position is represented as a non-fungible token (NFT) with unique metadata tied to the position (price range, fees, etc.).
+V2 uses fungible LP tokens to represent liquidity positions.
+Fee Management:
+
+V3 allows fee collection per position via the collectAllFees function. Fees accumulate for each NFT position.
+V2 automatically distributes fees to LP tokens without requiring manual collection.
+Granular Liquidity Management:
+
+V3 allows increase and decrease of liquidity within existing positions without affecting others.
+V2 requires adding or removing liquidity across the entire pool.
+
+Summary:
+Uniswap V3 enhances flexibility and efficiency by introducing concentrated liquidity, NFT-based positions, and granular control. V2, on the other hand, offers a simpler, uniform liquidity provision mechanism.
