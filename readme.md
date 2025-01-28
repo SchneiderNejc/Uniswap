@@ -210,3 +210,41 @@ Initiates a flash loan for specified token amounts.
 
 uniswapV3FlashCallback
 Handles loan repayment and associated fees.
+
+# Flash Swap Arbitrage
+
+Flash Swap Arbitrage vs. Regular Flash Swap
+1. Objective:
+
+Flash Swap Arbitrage: Specifically designed to exploit price differences between two pools for profit.
+Regular Flash Swap: General-purpose borrowing of tokens from a pool without requiring upfront capital
+2. Workflow Complexity:
+
+Flash Swap Arbitrage: Involves multiple steps:
+Flash borrow tokens from Pool A.
+Trade borrowed tokens on Pool B.
+Repay Pool A and keep the profit.
+Regular Flash Swap: Usually ends with the repayment of the borrowed tokens and any associated fees, without further trading.
+3. Key Focus:
+
+Flash Swap Arbitrage: Profit generation by exploiting market inefficiencies.
+Regular Flash Swap: Fulfills temporary liquidity needs for a variety of use cases.
+4. Profit Validation:
+
+Flash Swap Arbitrage: Includes logic to ensure profitability before proceeding.
+Regular Flash Swap: Focuses on completing a predefined action, with no inherent profit-checking mechanism.
+5. Example Use Cases:
+
+Flash Swap Arbitrage: Arbitrage between Uniswap pools with differing fees (e.g., 0.3% vs. 0.05%).
+Regular Flash Swap: Collateral swaps, debt refinancing, or liquidity testing.
+In summary, flash swap arbitrage is a specialized application of flash swaps aimed at profiting from price disparities, while regular flash swaps serve broader financial use cases without the specific focus on arbitrage.
+
+Functions:
+flashSwap
+Performs a flash swap to borrow tokens from a Uniswap V3 pool.
+
+_swap
+Executes a token swap using Uniswap's router.
+
+uniswapV3SwapCallback
+Handles the flash swap callback, including repayment and profit calculation.
